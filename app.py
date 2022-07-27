@@ -10,12 +10,12 @@ app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
 
 
-@app.route("/")
+@app.route("/",methods=['GET', 'POST'])
 def home():
     return render_template("index.html")
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["'GET', 'POST'"])
 # def predict():
 #     float_features = [float(x) for x in request.form.values()]
 #     features = [np.array(float_features)]

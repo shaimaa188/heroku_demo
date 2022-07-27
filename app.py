@@ -16,18 +16,18 @@ def home():
 
 
 @app.route("/predict", methods=["'GET', 'POST'"])
-# def predict():
-#     float_features = [float(x) for x in request.form.values()]
-#     features = [np.array(float_features)]
-#     prediction = model.predict(features)
-#
-#     return render_template("index.html", prediction_text = "The Species of the flower is {}".format(prediction))
-
 def predict():
-    json_ = request.json
-    query_df = pd.DataFrame(json_)
-    prediction = model.predict(query_df)
-    return jsonify({"Predection": list(prediction)})
+    float_features = [float(x) for x in request.form.values()]
+    features = [np.array(float_features)]
+    prediction = model.predict(features)
+
+    return render_template("index.html", prediction_text = "The Species of the flower is {}".format(prediction))
+
+# def predict():
+#     json_ = request.json
+#     query_df = pd.DataFrame(json_)
+#     prediction = model.predict(query_df)
+#     return jsonify({"Predection": list(prediction)})
 
 
 if __name__ == "__main__":
